@@ -40,7 +40,7 @@ class ProductPage(BasePage):
     def should_be_msg_about_adding(self):
         # Проверка выхода сообщения что товар добавлен
         product_name = self.browser.find_element(*ProductPageLocators.PRODUCT_NAME).text
-        message = self.browser.find_element(*ProductPageLocators.MESSAGE_ABOUT_ADDING).text
+        message = self.browser.find_element(*ProductPageLocators.SUCCESS_MESSAGE).text
 
         assert product_name in message, "Product name not found in message"
 
@@ -52,6 +52,13 @@ class ProductPage(BasePage):
 
         assert product_price == basket_price, "Product price and basket price is not equal"
 
+    def should_not_be_success_message(self):
+        message = "Success message is presented, but should not be"
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), message
+
+    def success_message_should_disappear(self):
+        message = "success message still present, but should disappear"
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), message
 
     def solve_quiz_and_get_code(self):
         # Для решения задачки внутри алерта
