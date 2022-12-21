@@ -4,7 +4,7 @@ from selenium.common.exceptions import NoSuchElementException, NoAlertPresentExc
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-from pages.locators import BasePageLocators
+from pages.locators import BasePageLocators, BasketPageLocators
 
 
 class BasePage():
@@ -15,6 +15,10 @@ class BasePage():
 
     def open(self):
         self.browser.get(self.url)
+
+    def open_basket(self):
+        basket_link = self.browser.find_element(*BasketPageLocators.BASKET_LINK)
+        basket_link.click()
 
     def go_to_login_page(self):
         login_link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
