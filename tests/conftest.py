@@ -2,7 +2,7 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
-ALLOWED_LANGUAGES = ('es', 'fr', 'ru', 'en', )
+ALLOWED_LANGUAGES = ('es', 'fr', 'ru', 'en',)
 
 
 def pytest_addoption(parser):

@@ -1,9 +1,8 @@
 import math
-
 from selenium.common.exceptions import NoAlertPresentException
-
 from .locators import ProductPageLocators
 from .base_page import BasePage
+
 
 class ProductPage(BasePage):
 
@@ -28,14 +27,11 @@ class ProductPage(BasePage):
     def should_be_add_to_basket_button(self):
         assert self.browser.find_element(*ProductPageLocators.BTN_ADD_TO_BASKET), "Add to basket button not presented"
 
-
     def should_be_name_of_product(self):
         assert self.browser.find_element(*ProductPageLocators.PRODUCT_NAME), "Name of product don't found"
 
-
     def should_be_price_of_product(self):
         assert self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE), "Product Price not found"
-
 
     def should_be_success_message(self):
         # Проверка выхода сообщения что товар добавлен
@@ -43,7 +39,6 @@ class ProductPage(BasePage):
         message = self.browser.find_element(*ProductPageLocators.SUCCESS_MESSAGE).text
 
         assert product_name in message, "Product name not found in message"
-
 
     def compare_basket_and_product_price(self):
         # Сравнение цен товара и пустой корзины

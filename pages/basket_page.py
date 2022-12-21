@@ -8,6 +8,7 @@ EMPTY_BASKET_MESSAGES = {
     "es": "Tu carrito esta vacío.",
 }
 
+
 class BasketPage(BasePage):
     def basket_should_be_empty(self, empty_message):
         cart_content = self.browser.find_element(*BasketPageLocators.BASKET_CONTENT)
