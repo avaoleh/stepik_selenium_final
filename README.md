@@ -21,6 +21,21 @@ python -m pytest -v --tb=line -m need_review --language=en --headless
 `--headless` и `--language` - необязательные аргументы
 
 
+review-tests:
+```
+	python -m pytest -v --tb=line --language=en -m need_review --headless
+```
+
+all-tests:
+```
+	python -m pytest -v --tb=line --language=en
+```
+
+all-tests-headless:
+```
+	python -m pytest -v --tb=line --language=en --headless
+```
+
 Если у вас ОС linux, то доступны команды:
 
 ```
