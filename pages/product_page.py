@@ -22,7 +22,7 @@ class ProductPage(BasePage):
         add_to_busket_button.click()
 
         self.solve_quiz_and_get_code()
-        self.should_be_msg_about_adding()
+        self.should_be_success_message()
         self.compare_basket_and_product_price()
 
     def should_be_add_to_basket_button(self):
@@ -37,7 +37,7 @@ class ProductPage(BasePage):
         assert self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE), "Product Price not found"
 
 
-    def should_be_msg_about_adding(self):
+    def should_be_success_message(self):
         # Проверка выхода сообщения что товар добавлен
         product_name = self.browser.find_element(*ProductPageLocators.PRODUCT_NAME).text
         message = self.browser.find_element(*ProductPageLocators.SUCCESS_MESSAGE).text
