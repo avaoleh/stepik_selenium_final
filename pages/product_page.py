@@ -53,12 +53,12 @@ class ProductPage(BasePage):
         assert product_price == basket_price, "Product price and basket price is not equal"
 
     def should_not_be_success_message(self):
-        message = "Success message is presented, but should not be"
-        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), message
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "Success message is presented, but should not be"
 
-    def success_message_should_disappear(self):
-        message = "success message still present, but should disappear"
-        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), message
+    def should_is_disappeared(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "The success message does not disappear, but should"
 
     def solve_quiz_and_get_code(self):
         # Для решения задачки внутри алерта
